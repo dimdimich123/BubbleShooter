@@ -10,11 +10,14 @@ namespace GameCore.Guns
 		protected Dictionary<BubbleColor, List<Bubble>> _bubbles = new Dictionary<BubbleColor, List<Bubble>>();
         protected Func<BubbleColor, GunBubblePool, Bubble> _factory;
 
+		public event Action OnReturned;
+
         public abstract Bubble GetBubble();
 		public void ReturnBubble(Bubble bubble, BubbleColor color)
 		{
             bubble.gameObject.SetActive(false);
             _bubbles[color].Add(bubble);
+			OnReturned?.Invoke();
         }
 	}
 }
