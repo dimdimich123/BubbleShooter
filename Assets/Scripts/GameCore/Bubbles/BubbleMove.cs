@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 namespace GameCore.Bubbles
 {
@@ -26,6 +24,7 @@ namespace GameCore.Bubbles
 
         public void StartMove(Vector3 direction)
         {
+            _isStatic = false;
             _direction = direction;
             StartCoroutine(Move());
         }
@@ -52,7 +51,6 @@ namespace GameCore.Bubbles
                 if ((1 << collision.gameObject.layer & _bubbleMask) != 0)
                 {
                     _isStatic = true;
-                    _bubbleTansform.position -= _direction * Time.deltaTime * _speed;
                     TakePlace();
                 }
                 else
