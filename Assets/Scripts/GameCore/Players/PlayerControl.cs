@@ -7,8 +7,8 @@ namespace GameCore.Players
     public sealed class PlayerControl : MonoBehaviour, IPointerMoveHandler,
             IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private Transform _arrow;
-        [SerializeField] private float _maxAngle;
+        private Transform _shootPoint;
+        private float _maxAngle;
         private PlayerGun _playerGun;
 
         private bool _onField = true;
@@ -16,9 +16,11 @@ namespace GameCore.Players
         private Vector3 _direction;
         private Vector3 _angles;
 
-        public void Init(PlayerGun playerGun)
+        public void Init(PlayerGun playerGun, Transform shootPoint, float maxAngle)
         {
             _playerGun = playerGun;
+            _shootPoint = shootPoint;
+            _maxAngle = maxAngle;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -55,14 +57,14 @@ namespace GameCore.Players
         {
             if (eventData.pointerCurrentRaycast.worldPosition != Vector3.zero)
             {
-                _direction = eventData.pointerCurrentRaycast.worldPosition - _arrow.position;
+                _direction = eventData.pointerCurrentRaycast.worldPosition - _shootPoint.position;
                 _angles = Quaternion.LookRotation(Vector3.forward, _direction).eulerAngles;
                 if (_angles.z > 360 - _maxAngle * 2)
                 {
                     _angles.z -= 360;
                 }
                 _angles.z = Mathf.Clamp(_angles.z, -_maxAngle, _maxAngle);
-                _arrow.localEulerAngles = _angles;
+                _shootPoint.localEulerAngles = _angles;
             }
         }
     }
