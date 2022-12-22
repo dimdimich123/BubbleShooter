@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8469bfd9d5dc364f9b6f01ae7bc4b24, type: 3}
   m_Name: PlayerControlConfig
   m_EditorClassIdentifier: 
-  _angle: 0
+  _angle: 85
