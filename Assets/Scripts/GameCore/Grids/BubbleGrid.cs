@@ -1,8 +1,7 @@
-using GameCore.Bubbles;
-using System.Collections;
-using UnityEngine;
-using GameCore.CommonLogic;
 using System.Collections.Generic;
+using UnityEngine;
+using GameCore.Bubbles;
+using GameCore.CommonLogic;
 
 namespace GameCore.Grids
 {
@@ -60,9 +59,9 @@ namespace GameCore.Grids
         {
             _cellPosition = _grid.WorldToCell(bubbleTransform.position);
 
-            if (_cellPosition.x < 0 || _cellPosition.x > Width)
+            if (_cellPosition.x < 0 || _cellPosition.x >= Width)
             {
-                _cellPosition.x = Mathf.Clamp(_cellPosition.x, 0, Width);
+                _cellPosition.x = Mathf.Clamp(_cellPosition.x, 0, Width - 1);
             }
 
             _bubbles[_cellPosition.x, _cellPosition.y] = bubble;
