@@ -1,7 +1,7 @@
-using GameCore.CommonLogic;
 using System;
 using System.Collections.Generic;
 using GameCore.Bubbles;
+using GameCore.CommonLogic;
 
 namespace GameCore.Guns
 {
@@ -9,10 +9,14 @@ namespace GameCore.Guns
     {
         private int _colorCount = 1;
 
-        public GunRandomPool(Func<BubbleColor, GunBubblePool, Bubble> factory)
+        public GunRandomPool()
         {
-            _factory = factory;
             _colorCount = Enum.GetNames(typeof(BubbleColor)).Length;
+        }
+
+        public override void Init(Func<BubbleColor, GunBubblePool, Bubble> factory)
+        {
+            base.Init(factory);
             InitBubbles();
         }
 
@@ -27,9 +31,8 @@ namespace GameCore.Guns
             }
         }
 
-        public override Bubble GetBubble()
+        private Bubble TakeBubble(BubbleColor color)
         {
-            BubbleColor color = (BubbleColor)UnityEngine.Random.Range(0, _colorCount);
             Bubble bubble = null;
 
             if (_bubbles[color].Count > 0)
@@ -43,6 +46,17 @@ namespace GameCore.Guns
                 bubble = _factory(color, this);
             }
             return bubble;
+        }
+
+        public override Bubble GetBubble()
+        {
+            BubbleColor color = (BubbleColor)UnityEngine.Random.Range(0, _colorCount);
+            return TakeBubble(color);
+        }
+
+        public Bubble GetBubble(BubbleColor color)
+        {
+            return TakeBubble(color);
         }
     }
 }

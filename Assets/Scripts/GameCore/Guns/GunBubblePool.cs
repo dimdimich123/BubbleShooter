@@ -13,7 +13,14 @@ namespace GameCore.Guns
 		public event Action OnReturned;
 
         public abstract Bubble GetBubble();
-		public void ReturnBubble(Bubble bubble, BubbleColor color)
+
+		public virtual void Init(Func<BubbleColor, GunBubblePool, Bubble> factory)
+		{
+			_factory = factory;
+
+        }
+
+        public void ReturnBubble(Bubble bubble, BubbleColor color)
 		{
             bubble.gameObject.SetActive(false);
             _bubbles[color].Add(bubble);

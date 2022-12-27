@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using GameCore.CommonLogic;
 using System.Linq;
+using GameCore.CommonLogic;
 using GameCore.Bubbles;
 
 namespace GameCore.Guns {
@@ -9,12 +9,18 @@ namespace GameCore.Guns {
     {
         private int _bubbleColorIndex = 0;
         private List<BubbleColor> _bubbleColors= new List<BubbleColor>();
+        private readonly int _length;
 
-        public GunConstPool(Func<BubbleColor, GunBubblePool, Bubble> factory, int length)
+        public GunConstPool(int length)
         {
-            _factory = factory;
-            InitColors(length);
-            InitBubbles(length);
+            _length = length;
+        }
+
+        public override void Init(Func<BubbleColor, GunBubblePool, Bubble> factory)
+        {
+            base.Init(factory);
+            InitColors(_length);
+            InitBubbles(_length);
         }
 
         private void InitColors(int length)
