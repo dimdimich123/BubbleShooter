@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdaa17c15b95d24f850ca36f47899b8, type: 3}
+  m_Name: Level2
+  m_EditorClassIdentifier: 
+  _levelId: 2
+  _bubbles:
+  - PositionX: 0
+    PositionY: 0
+    Color: 0
+  - PositionX: 1
+    PositionY: 0
+    Color: 0
+  - PositionX: 2
+    PositionY: 0
+    Color: 0
+  - PositionX: 3
+    PositionY: 0
+    Color: 0
+  - PositionX: 4
+    PositionY: 0
+    Color: 0
+  - PositionX: 5
+    PositionY: 0
+    Color: 0
+  - PositionX: 6
+    PositionY: 0
+    Color: 0
+  - PositionX: 7
+    PositionY: 0
+    Color: 0
+  - PositionX: 8
+    PositionY: 0
+    Color: 0
+  - PositionX: 9
+    PositionY: 0
+    Color: 0
+  - PositionX: 10
+    PositionY: 0
+    Color: 0
+  - PositionX: 11
+    PositionY: 0
+    Color: 0
+  - PositionX: 12
+    PositionY: 0
+    Color: 0
+  - PositionX: 13
+    PositionY: 0
+    Color: 0
+  - PositionX: 14
+    PositionY: 0
+    Color: 2
+  - PositionX: 0
+    PositionY: 1
+    Color: 1
+  - PositionX: 1
+    PositionY: 1
+    Color: 3
+  - PositionX: 2
+    PositionY: 1
+    Color: 1
+  - PositionX: 3
+    PositionY: 1
+    Color: 3
+  - PositionX: 4
+    PositionY: 1
+    Color: 1
+  - PositionX: 5
+    PositionY: 1
+    Color: 3
