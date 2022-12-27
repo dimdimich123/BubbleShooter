@@ -680,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046838194}
   - component: {fileID: 1046838193}
-  - component: {fileID: 1046838192}
+  - component: {fileID: 1046838195}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -688,22 +688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1046838192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046838191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625208853892c1840ac89246360a779f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 6168177851618846178, guid: 2acb493328dce6a449c49d31cc20a0d8, type: 3}
-  _grid: {fileID: 1046838193}
-  _gun: {fileID: 1747015911}
-  _control: {fileID: 174829658}
 --- !u!156049354 &1046838193
 Grid:
   m_ObjectHideFlags: 0
@@ -731,6 +715,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &1046838195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046838191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14ff339ded1fe2428b9ff6b225bfc80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grid: {fileID: 1046838193}
+  _gun: {fileID: 1747015911}
+  _control: {fileID: 174829658}
 --- !u!1 &1747015909
 GameObject:
   m_ObjectHideFlags: 0
