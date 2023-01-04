@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using GameCore.Bubbles;
 
@@ -11,6 +12,9 @@ namespace GameCore.Guns
 
         private bool _isReady = false;
 
+        public event Action OnGoodShot;
+        public event Action OnBadShot;
+
         public void Init(GunBubblePool bubblePool)
         {
             _bubblePool= bubblePool;
@@ -23,12 +27,26 @@ namespace GameCore.Guns
             if(_selectedBubble!= null)
             {
                 _selectedBubble.OnEndMove -= SelectBubble;
+                _selectedBubble.OnGroupDontPop -= BadShot;
+                _selectedBubble.OnGroupPop -= GoodShot;
             }
             _selectedBubble = _bubblePool.GetBubble();
             _selectedBubble.transform.position = _transform.position;
             _selectedBubble.OnEndMove += SelectBubble;
+            _selectedBubble.OnGroupPop += GoodShot;
+            _selectedBubble.OnGroupDontPop += BadShot;
             _isReady = true;
 
+        }
+
+        private void GoodShot()
+        {
+            OnGoodShot?.Invoke();
+        }
+
+        private void BadShot()
+        {
+            OnBadShot?.Invoke();
         }
 
         public void Shoot()
@@ -43,6 +61,8 @@ namespace GameCore.Guns
         private void OnDisable()
         {
             _selectedBubble.OnEndMove -= SelectBubble;
+            _selectedBubble.OnGroupPop -= GoodShot;
+            _selectedBubble.OnGroupDontPop -= BadShot;
         }
     }
 }
