@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using GameCore.Bubbles;
 using GameCore.CommonLogic;
+using GameCore.Guns;
 
 namespace GameCore.Grids
 {
@@ -19,6 +21,7 @@ namespace GameCore.Grids
         private int _x = 0;
         private int _y = 0;
 
+        public event Action OnLastLineHaveBubble;
 
         public BubbleGrid(Grid grid, int width, int height)
         {
@@ -53,6 +56,8 @@ namespace GameCore.Grids
             _cellPosition.y = height;
             _bubbles[width, height] = bubble;
             bubbleTransform.position = _grid.CellToWorld(_cellPosition);
+
+            CheckLastLine();
         }
 
         public void SetBubble(Bubble bubble, Transform bubbleTransform)
@@ -66,6 +71,8 @@ namespace GameCore.Grids
 
             _bubbles[_cellPosition.x, _cellPosition.y] = bubble;
             bubbleTransform.position = _grid.CellToWorld(_cellPosition);
+
+            CheckLastLine();
         }
 
         public void RemoveBubble(Vector3 position)
@@ -93,6 +100,10 @@ namespace GameCore.Grids
             {
                 _x = _cellPosition.x + pair.FirstValue;
                 _y = _cellPosition.y + pair.SecondValue;
+                if(_y >= Height)
+                {
+                    continue;
+                }
                 if ((_x >= 0 && _x < Width) && _y >= 0 && _bubbles[_x, _y] != null && _bubbles[_x, _y].Color == color)
                 {
                     result.Add(_bubbles[_x, _y]);
@@ -100,6 +111,90 @@ namespace GameCore.Grids
             }
 
             return result;
+        }
+
+        public void BubbleShift(GunBubblePool fieldPool)
+        {
+            for (int j = Height - 2; j >= 0; j--)
+            {
+                for(int i = 0; i < Width; ++i)
+                {
+                    _bubbles[i, j + 1] = _bubbles[i, j];
+
+                    if(_bubbles[i, j + 1] != null)
+                    {
+                        _cellPosition.x = i;
+                        _cellPosition.y = j + 1;
+                        _bubbles[i, j + 1].transform.position = _grid.CellToWorld(_cellPosition);
+
+                        _bubbles[i, j + 1].Group = new BubbleGroup(_bubbles[i, j + 1]);
+                    }
+                }
+            }
+
+            _cellPosition.y = 0;
+            for (int i = 0; i < Width; i++)
+            {
+                _bubbles[i, 0] = fieldPool.GetBubble();
+
+                _cellPosition.x = i;
+                _bubbles[i, 0].transform.position = _grid.CellToWorld(_cellPosition);
+            }
+
+            for(int j = 0; j < Height; ++j)
+            {
+                for(int i = 0; i < Width; ++i)
+                {
+                    if(_bubbles[i, j] != null)
+                    {
+                        List<Bubble> bubbles = CheckAround(_bubbles[i, j].transform.position, _bubbles[i, j].Color);
+                        for (int k = 0; k < bubbles.Count; ++k)
+                        {
+                            if (bubbles[k].Group != _bubbles[i, j].Group)
+                            {
+                                _bubbles[i, j].Group.Union(bubbles[k].Group);
+                            }
+                        }
+                    }
+                }
+            }
+
+            CheckLastLine();
+        }
+
+        private void CheckLastLine()
+        {
+            for(int i = 0; i < Width; ++i)
+            {
+                if (_bubbles[i, Height - 1] != null)
+                {
+                    OnLastLineHaveBubble?.Invoke();
+                    break;
+                }
+            }
+        }
+
+        public bool CheckGrid()
+        {
+            bool isEmpty = true;
+            for (int i = 0; i < Width; ++i)
+            {
+                for(int j = 0; j < Height; ++j)
+                {
+                    if (_bubbles[i, j] != null)
+                    {
+                        isEmpty = false;
+                        break;
+                    }
+                }
+                
+                if(!isEmpty)
+                {
+                    break;
+                }
+            }
+
+            return isEmpty;
         }
     }
 }

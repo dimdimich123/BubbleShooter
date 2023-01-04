@@ -24,16 +24,18 @@ namespace GameCore.Bubbles
             }
         }
 
-        public void TryPop()
+        public bool TryPop()
         {
             if (_bubbles.Count >= _maxCount)
             {
-                foreach (Bubble bubble in _bubbles)
+                for(int i = 0; i < _bubbles.Count; ++i)
                 {
-                    bubble.PopOnField();
+                    _bubbles[i].PopOnField(i + 1);
                 }
                 _bubbles.Clear();
+                return true;
             }
+            return false;
         }
     }
 }

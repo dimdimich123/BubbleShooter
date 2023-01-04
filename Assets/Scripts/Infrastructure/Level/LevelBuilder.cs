@@ -34,11 +34,12 @@ namespace Infrastructure.Level {
             _prefabProvider = new PrefabProvider();
             _configProvider = new ConfigProvider();
 
-            _configProvider.SelectedLevelInfo.GunPool = new GunRandomPool();
-
             BuildPlayer();
             BuildField();
             BuildUI();
+
+            LevelManager levelManager = gameObject.AddComponent<LevelManager>();
+            levelManager.Init(_bubbleGrid, _fieldPool, _gun);
         }
 
         private void BuildPlayer()
@@ -63,7 +64,7 @@ namespace Infrastructure.Level {
 
         private void BuildUI()
         {
-            Debug.Log("System.NotImplementedException()  :)");
+            Debug.Log("System.NotImplementedException() BuildUI :)");
         }
     }
 }
