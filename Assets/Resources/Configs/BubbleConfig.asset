@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BubbleConfig
   m_EditorClassIdentifier: 
   _speed: 8
+  _points: 50
