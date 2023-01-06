@@ -2,8 +2,8 @@ namespace Infrastructure
 {
     public enum LevelNumberId
     {
-        LevelRandom,
-        Level1,
-        Level2
+        LevelRandom = 0,
+        Level1 = 1,
+        Level2 = 2
     }
 }
