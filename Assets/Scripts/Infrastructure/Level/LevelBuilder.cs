@@ -6,6 +6,9 @@ using Infrastructure.Factories;
 using Infrastructure.Providers.Configs;
 using Infrastructure.Providers.Prefabs;
 using Configs.Level;
+using UI.Level.Score;
+using UI.Level.Lose;
+using UI.Level.Win;
 
 namespace Infrastructure.Level {
     public sealed class LevelBuilder : MonoBehaviour
@@ -15,7 +18,11 @@ namespace Infrastructure.Level {
 
         [SerializeField] private Grid _grid;
         [SerializeField] private PlayerGun _gun;
+        [SerializeField] private Transform _nextBubblePosition;
         [SerializeField] private PlayerControl _control;
+        [SerializeField] private ScoreUI _score;
+        [SerializeField] private LoseView _loseView;
+        [SerializeField] private WinView _winView;
 
         private GunBubblePool _gunPool;
         private GunRandomPool _fieldPool;
@@ -39,7 +46,7 @@ namespace Infrastructure.Level {
             BuildUI();
 
             LevelManager levelManager = gameObject.AddComponent<LevelManager>();
-            levelManager.Init(_bubbleGrid, _fieldPool, _gun);
+            levelManager.Init(_bubbleGrid, _fieldPool, _gun, _loseView, _winView, _score, _configProvider.SelectedLevelInfo.LevelId);
         }
 
         private void BuildPlayer()
@@ -48,7 +55,7 @@ namespace Infrastructure.Level {
                 _prefabProvider.Bubble, _configProvider.BubbleConfig.Speed, false);
             _gunPool = _configProvider.SelectedLevelInfo.GunPool;
             _gunPool.Init(gunBubbleFactory.Create);
-            _gun.Init(_gunPool);
+            _gun.Init(_gunPool, _nextBubblePosition);
             _control.Init(_gun, _gun.transform, _configProvider.PlayerControlConfig.Angle);
         }
 
@@ -64,7 +71,9 @@ namespace Infrastructure.Level {
 
         private void BuildUI()
         {
-            Debug.Log("System.NotImplementedException() BuildUI :)");
+            _score.Init(_gunPool, _fieldPool, _configProvider.BubbleConfig.Points);
+            _loseView.Init(_score);
+            _winView.Init(_score);
         }
     }
 }
