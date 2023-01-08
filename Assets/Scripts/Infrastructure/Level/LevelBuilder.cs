@@ -9,6 +9,7 @@ using Configs.Level;
 using UI.Level.Score;
 using UI.Level.Lose;
 using UI.Level.Win;
+using Audio.Level;
 
 namespace Infrastructure.Level {
     public sealed class LevelBuilder : MonoBehaviour
@@ -23,6 +24,7 @@ namespace Infrastructure.Level {
         [SerializeField] private ScoreUI _score;
         [SerializeField] private LoseView _loseView;
         [SerializeField] private WinView _winView;
+        [SerializeField] private AudioObject _audioObject;
 
         private GunBubblePool _gunPool;
         private GunRandomPool _fieldPool;
@@ -52,7 +54,7 @@ namespace Infrastructure.Level {
         private void BuildPlayer()
         {
             BubbleFactory gunBubbleFactory = new BubbleFactory(_bubbleGrid, _configProvider.BubbleColorsConfig, 
-                _prefabProvider.Bubble, _configProvider.BubbleConfig.Speed, false);
+                _prefabProvider.Bubble, _configProvider.BubbleConfig.Speed, false, _audioObject);
             _gunPool = _configProvider.SelectedLevelInfo.GunPool;
             _gunPool.Init(gunBubbleFactory.Create);
             _gun.Init(_gunPool, _nextBubblePosition);
@@ -63,7 +65,7 @@ namespace Infrastructure.Level {
         {
             LevelConfig levelConfig = _configProvider.GetLevelConfig(_configProvider.SelectedLevelInfo.LevelId);
             BubbleFactory fieldBubbleFactory = new BubbleFactory(_bubbleGrid, _configProvider.BubbleColorsConfig,
-                _prefabProvider.Bubble, _configProvider.BubbleConfig.Speed, true);
+                _prefabProvider.Bubble, _configProvider.BubbleConfig.Speed, true, _audioObject);
             _fieldPool = new GunRandomPool();
             _fieldPool.Init(fieldBubbleFactory.Create);
             levelConfig.LevelBuilder.Build(_bubbleGrid, _fieldPool);

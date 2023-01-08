@@ -1,3 +1,4 @@
+using Audio.Level;
 using System.Collections;
 using UnityEngine;
 
@@ -10,16 +11,18 @@ namespace GameCore.Bubbles
         private float _speed;
         private Transform _bubbleTansform;
         private Bubble _bubble;
+        private AudioObject _audio;
 
         private Vector3 _direction;
         private bool _isStatic;
 
-        public void Init(Bubble bubble, float speed, bool isStatic)
+        public void Init(Bubble bubble, float speed, bool isStatic, AudioObject audio)
         {
             _bubble = bubble;
             _bubbleTansform = _bubble.GetComponent<Transform>();
             _speed = speed;
             _isStatic = isStatic;
+            _audio = audio;
         }
 
         public void StartMove(Vector3 direction)
@@ -27,6 +30,7 @@ namespace GameCore.Bubbles
             _isStatic = false;
             _direction = direction;
             StartCoroutine(Move());
+            _audio.Play(AudioObjectTypeID.Shot);
         }
 
         private IEnumerator Move()
@@ -42,6 +46,7 @@ namespace GameCore.Bubbles
         {
             StopAllCoroutines();
             _bubble.EndMove();
+            _audio.Play(AudioObjectTypeID.Reflect);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -61,6 +66,7 @@ namespace GameCore.Bubbles
                         if (hit.collider != null)
                         {
                             _direction = Vector3.Reflect(_direction, hit.normal);
+                            _audio.Play(AudioObjectTypeID.Reflect);
                         }
                     }
                 }
