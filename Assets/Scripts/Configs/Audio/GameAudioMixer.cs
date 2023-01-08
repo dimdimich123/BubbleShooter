@@ -6,6 +6,9 @@ using Audio;
 
 namespace Config.Audio
 {
+    /// <summary>
+    /// ScriptableObject that stores the AudioMixer and returns and sets parameter values
+    /// </summary>
     [CreateAssetMenu(fileName = "GameAudioMixer", menuName = "Configs/GameAudioMixer", order = 7)]
     public sealed class GameAudioMixer : ScriptableObject
     {

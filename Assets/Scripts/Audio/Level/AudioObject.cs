@@ -1,11 +1,12 @@
-using Audio.UI;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Audio.Level
 {
+    /// <summary>
+    /// Component that stores and launches audio clips of game objects
+    /// </summary>
     public sealed class AudioObject : MonoBehaviour
     {
         [SerializeField] private AudioSource _audioSource;

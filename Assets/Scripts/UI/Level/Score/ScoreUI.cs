@@ -4,6 +4,9 @@ using GameCore.Guns;
 
 namespace UI.Level.Score
 {
+    /// <summary>
+    /// Stores and displays player scores
+    /// </summary>
     public sealed class ScoreUI : MonoBehaviour
     {
         [SerializeField] private TMPro.TMP_Text _scoreNumberText;

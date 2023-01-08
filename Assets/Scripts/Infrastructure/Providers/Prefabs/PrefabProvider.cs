@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Infrastructure.Providers.Prefabs
 {
+    /// <summary>
+    /// Provides prefabs from disk
+    /// </summary>
     public sealed class PrefabProvider
     {
         private GameObject _bubble;

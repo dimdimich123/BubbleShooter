@@ -1,5 +1,8 @@
 namespace GameCore.CommonLogic
 {
+    /// <summary>
+    /// A simple class that has a pair of int values
+    /// </summary>
     public sealed class Pair
     {
         public int FirstValue;

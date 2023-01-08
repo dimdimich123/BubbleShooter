@@ -4,6 +4,9 @@ using GameCore.Bubbles;
 
 namespace GameCore.Guns
 {
+    /// <summary>
+    /// Shoots bubbles
+    /// </summary>
     public sealed class PlayerGun : MonoBehaviour
     {
         private Transform _transform;

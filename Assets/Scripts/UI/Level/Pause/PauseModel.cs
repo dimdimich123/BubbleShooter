@@ -2,6 +2,9 @@ using UnityEngine.SceneManagement;
 
 namespace UI.Level.Pause
 {
+    /// <summary>
+    /// Implements click actions on UI elements of the <see cref="PauseView"/>
+    /// </summary>
     public sealed class PauseModel
     {
         private IPanel _hudView;

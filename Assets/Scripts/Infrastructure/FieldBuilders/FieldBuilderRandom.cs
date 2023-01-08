@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Infrastructure.FieldBuilders
 {
+    /// <summary>
+    /// Fills the playing field with <see cref="Bubble"/>s randomly
+    /// </summary>
     public class LevelBuilderRandom : ILevelBuilder
     {
         private const int _numberEmptyRowsOfBubblesFromEndOfField = 4;

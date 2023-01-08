@@ -1,5 +1,11 @@
-namespace Infrastructure.SavingData
+﻿namespace Infrastructure.SavingData
 {
+    /// <summary>
+    /// Stores the record value for level
+    /// </summary>
+    /// <remarks>
+    /// A simple class that has a pair of values ​​(<see cref="LevelNumberId"/> and <see cref="int"/>)
+    /// </remarks>
     [System.Serializable]
     public sealed class RecordInfo
     {

@@ -7,6 +7,9 @@ using GameCore.Guns;
 
 namespace GameCore.Grids
 {
+    /// <summary>
+    /// Controls the mesh on which the <see cref="Bubble"/>s are located
+    /// </summary>
     public sealed class BubbleGrid
     {
         private Grid _grid;

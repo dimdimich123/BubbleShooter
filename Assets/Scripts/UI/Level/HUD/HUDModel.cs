@@ -1,5 +1,8 @@
 namespace UI.Level.HUD
 {
+    /// <summary>
+    /// Implements click actions on UI elements of the <see cref="HUDView"/>
+    /// </summary>
     public sealed class HUDModel
     {
         private IPanel _pauseView;

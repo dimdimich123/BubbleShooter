@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Extension of class <see cref="CanvasGroup"/>
+/// </summary>
 public static class CanvasGroupExtension
 {
     public static void Open(this CanvasGroup canvas)

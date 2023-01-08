@@ -4,6 +4,9 @@ using GameCore.Guns;
 
 namespace GameCore.Players
 {
+    /// <summary>
+    /// Allows the player to aim to fire <see cref="Bubbles.Bubble"/>
+    /// </summary>
     public sealed class PlayerControl : MonoBehaviour, IPointerMoveHandler,
             IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {

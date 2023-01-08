@@ -5,6 +5,9 @@ using Config.Audio;
 
 namespace UI.Menu
 {
+    /// <summary>
+    /// Associates the view and model of the menu panel
+    /// </summary>
     [RequireComponent(typeof(MenuView))]
     public sealed class MenuPresenter : MonoBehaviour
     {

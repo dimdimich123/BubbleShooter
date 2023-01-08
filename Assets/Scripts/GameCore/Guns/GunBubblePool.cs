@@ -5,7 +5,10 @@ using GameCore.Bubbles;
 
 namespace GameCore.Guns
 {
-	public abstract class GunBubblePool
+    /// <summary>
+    /// Abstract <see cref="Bubble"/> pool class
+    /// </summary>
+    public abstract class GunBubblePool
 	{
 		protected Dictionary<BubbleColor, List<Bubble>> _bubbles = new Dictionary<BubbleColor, List<Bubble>>();
         protected Func<BubbleColor, GunBubblePool, Bubble> _factory;

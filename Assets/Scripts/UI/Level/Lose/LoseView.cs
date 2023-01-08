@@ -6,6 +6,9 @@ using Audio.UI;
 
 namespace UI.Level.Lose
 {
+    /// <summary>
+    /// Displaying data received from the <see cref="LoseModel"/>
+    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public sealed class LoseView : MonoBehaviour, IPanel
     {

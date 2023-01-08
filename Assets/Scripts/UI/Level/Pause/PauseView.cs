@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI.Level.Pause
 {
+    /// <summary>
+    /// Displaying data received from the <see cref="PauseModel"/>
+    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public sealed class PauseView : MonoBehaviour, IPanel
     {

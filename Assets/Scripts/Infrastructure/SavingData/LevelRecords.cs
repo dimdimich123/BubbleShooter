@@ -2,6 +2,9 @@ using System;
 
 namespace Infrastructure.SavingData
 {
+    /// <summary>
+    /// Stores the record value for each level. Used for serialization
+    /// </summary>
     [Serializable]
     public sealed class LevelRecords
     {

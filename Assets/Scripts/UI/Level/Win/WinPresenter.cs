@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI.Level.Win
 {
+    /// <summary>
+    /// Associates the view and model of the win panel
+    /// </summary>
     [RequireComponent(typeof(WinView))]
     public sealed class WinPresenter : MonoBehaviour
     {

@@ -5,6 +5,9 @@ using System.IO;
 
 namespace Infrastructure.Serialization
 {
+    /// <summary>
+    /// Serializes and deserializes data
+    /// </summary>
     public static class BinarySerialization
     {
         public static void SerializeData<T>(string path, T data)

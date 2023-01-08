@@ -8,6 +8,9 @@ using Config.Audio;
 
 namespace UI.Menu
 {
+    /// <summary>
+    /// Displaying data received from the <see cref="MenuModel"/>
+    /// </summary>
     public sealed class MenuView : MonoBehaviour
     {
         private const float _lowerVolumeLimit = -79f;

@@ -6,6 +6,9 @@ using Audio.UI;
 
 namespace UI.Level.Win
 {
+    /// <summary>
+    /// Displaying data received from the <see cref="WinModel"/>
+    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class WinView : MonoBehaviour, IPanel
     {

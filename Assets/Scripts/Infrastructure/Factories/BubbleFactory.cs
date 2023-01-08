@@ -8,6 +8,9 @@ using Audio.Level;
 
 namespace Infrastructure.Factories
 {
+    /// <summary>
+    /// Creates <see cref="Bubble"/>
+    /// </summary>
     public sealed class BubbleFactory
     {
         private BubbleGrid _grid;

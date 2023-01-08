@@ -7,6 +7,9 @@ using GameCore.Guns;
 
 namespace Infrastructure.FieldBuilders
 {
+    /// <summary>
+    /// Fills the playing field with <see cref="Bubble"/> from the permanent level configuration
+    /// </summary>
     public class LevelBuilderConst : ILevelBuilder
     {
         private BubblePositionData[] _bubbles;

@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace GameCore.Bubbles
 {
+    /// <summary>
+    /// Stores <see cref="Bubble"/>s of the same color
+    /// </summary>
     public sealed class BubbleGroup
     {
         private const int _maxCount = 3;

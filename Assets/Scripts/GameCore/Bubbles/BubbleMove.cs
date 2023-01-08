@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace GameCore.Bubbles
 {
+    /// <summary>
+    /// Controls the movement of the <see cref="Bubble"/>
+    /// </summary>
     public sealed class BubbleMove : MonoBehaviour
     {
         [SerializeField] private LayerMask _wallMask;

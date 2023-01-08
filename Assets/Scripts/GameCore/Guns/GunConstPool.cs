@@ -5,6 +5,9 @@ using GameCore.CommonLogic;
 using GameCore.Bubbles;
 
 namespace GameCore.Guns {
+    /// <summary>
+    /// Implementation of the <see cref="GunBubblePool"/> class that has a constant sequence of bubbles
+    /// </summary>
     public sealed class GunConstPool : GunBubblePool
     {
         private int _bubbleColorIndex = 0;

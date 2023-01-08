@@ -6,6 +6,9 @@ using Configs.Level;
 
 namespace Infrastructure.Providers.Configs
 {
+    /// <summary>
+    /// Provides configurations from disk
+    /// </summary>
     public sealed class ConfigProvider
     {
         private SelectedLevelInfo _selectedLevelInfo;

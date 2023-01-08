@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI.Level.Lose
 {
+    /// <summary>
+    /// Associates the view and model of the lose panel
+    /// </summary>
     [RequireComponent(typeof(LoseView))]
     public sealed class LosePresenter : MonoBehaviour
     {

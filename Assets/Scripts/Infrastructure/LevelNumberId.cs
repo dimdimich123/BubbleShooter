@@ -1,5 +1,8 @@
 namespace Infrastructure
 {
+    /// <summary>
+    /// Level enumeration
+    /// </summary>
     public enum LevelNumberId
     {
         LevelRandom = 0,

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace UI.Level.HUD
 {
+    /// <summary>
+    /// Displaying data received from the <see cref="HUDModel"/>
+    /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public sealed class HUDView : MonoBehaviour, IPanel
     {

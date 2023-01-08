@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI.Level.HUD
 {
+    /// <summary>
+    /// Associates the view and model of the HUD panel
+    /// </summary>
     [RequireComponent(typeof(HUDView))]
     public sealed class HUDPresenter : MonoBehaviour
     {

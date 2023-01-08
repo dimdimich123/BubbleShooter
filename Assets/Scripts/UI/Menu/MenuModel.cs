@@ -7,6 +7,9 @@ using Config.Audio;
 
 namespace UI.Menu
 {
+    /// <summary>
+    /// Implements click actions on UI elements of the <see cref="MenuView"/>
+    /// </summary>
     public sealed class MenuModel
     {
         private const float _valueWhenAudioIsOn = 0;

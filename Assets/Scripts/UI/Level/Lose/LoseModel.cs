@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace UI.Level.Lose
 {
+    /// <summary>
+    /// Implements click actions on UI elements of the <see cref="LoseView"/>
+    /// </summary>
     public sealed class LoseModel
     {
         public void Exit()

@@ -5,6 +5,9 @@ using GameCore.CommonLogic;
 
 namespace Configs
 {
+    /// <summary>
+    /// Stores the correspondence of <see cref="BubbleColor"/> to <see cref="Color"/>
+    /// </summary>
     [CreateAssetMenu(fileName = "BubbleColorsConfig", menuName = "Configs/BubbleColorsConfig", order = 2)]
     public sealed class BubbleColorsConfig : ScriptableObject
     {

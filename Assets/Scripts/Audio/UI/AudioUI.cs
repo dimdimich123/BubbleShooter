@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Audio.UI
 {
+    /// <summary>
+    /// Component that stores and launches audio clips of UI objects
+    /// </summary>
     public sealed class AudioUI : MonoBehaviour
     {
         [SerializeField] private AudioSource _audioSource;

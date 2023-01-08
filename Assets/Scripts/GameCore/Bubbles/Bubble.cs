@@ -8,6 +8,9 @@ using Audio.Level;
 
 namespace GameCore.Bubbles
 {
+    /// <summary>
+    /// Controls the bubble object
+    /// </summary>
     public sealed class Bubble : MonoBehaviour
     {
         [SerializeField] private BubbleMove _move;

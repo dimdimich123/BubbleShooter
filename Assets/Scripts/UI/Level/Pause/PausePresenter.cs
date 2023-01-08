@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace UI.Level.Pause
 {
+    /// <summary>
+    /// Associates the view and model of the pause panel
+    /// </summary>
     [RequireComponent(typeof(PauseView))]
     public sealed class PausePresenter : MonoBehaviour
     {

@@ -5,6 +5,9 @@ using GameCore.CommonLogic;
 
 namespace GameCore.Guns
 {
+    /// <summary>
+    /// Implementation of the <see cref="GunBubblePool"/> class that has a random sequence of bubbles
+    /// </summary>
     public sealed class GunRandomPool : GunBubblePool
     {
         private int _colorCount = 1;

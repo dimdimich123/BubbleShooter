@@ -9,6 +9,9 @@ using UI.Level.Score;
 
 namespace Infrastructure.Level
 {
+    /// <summary>
+    /// Manages level progress
+    /// </summary>
     public class LevelManager : MonoBehaviour
     {
         private const int _badShotsBeforeAddingBubbles = 5;

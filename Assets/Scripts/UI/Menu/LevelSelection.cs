@@ -9,6 +9,9 @@ using Audio.UI;
 
 namespace UI.Menu
 {
+    /// <summary>
+    /// Controls the display of level records
+    /// </summary>
     public sealed class LevelSelection : MonoBehaviour
     {
         [SerializeField] private List<LevelSelectionData> _levels;

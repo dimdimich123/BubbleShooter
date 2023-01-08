@@ -12,6 +12,9 @@ using UI.Level.Win;
 using Audio.Level;
 
 namespace Infrastructure.Level {
+    /// <summary>
+    /// Creates and initializes level objects
+    /// </summary>
     public sealed class LevelBuilder : MonoBehaviour
     {
         private const int _fieldWidth = 15;

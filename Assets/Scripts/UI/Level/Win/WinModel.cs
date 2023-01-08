@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace UI.Level.Win
 {
+    /// <summary>
+    /// Implements click actions on UI elements of the <see cref="WinView"/>
+    /// </summary>
     public sealed class WinModel
     {
         public void Exit()

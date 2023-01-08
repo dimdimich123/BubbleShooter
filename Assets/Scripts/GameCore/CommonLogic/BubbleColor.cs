@@ -1,5 +1,11 @@
+using GameCore.Bubbles;
+
 namespace GameCore.CommonLogic
 {
+    /// <summary>
+    /// Enumeration of <see cref="Bubble"/> colors
+    /// </summary>
+
     public enum BubbleColor
     {
         Green = 0, 
