@@ -1,3 +1,4 @@
+using Audio.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ namespace UI.Level.Pause
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _continueButton;
+
+        [SerializeField] private AudioUI _audioUI;
 
         private CanvasGroup _canvas;
 
@@ -31,16 +34,19 @@ namespace UI.Level.Pause
 
         private void Exit()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             OnExit?.Invoke();
         }
 
         private void Restart()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             OnRestart?.Invoke();
         }
 
         private void Continue()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             _canvas.Close();
             OnContinue?.Invoke();
         }

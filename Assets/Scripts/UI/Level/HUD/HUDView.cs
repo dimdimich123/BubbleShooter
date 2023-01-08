@@ -1,3 +1,4 @@
+using Audio.UI;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ namespace UI.Level.HUD
     public sealed class HUDView : MonoBehaviour, IPanel
     {
         [SerializeField] private Button _pauseButton;
+
+        [SerializeField] private AudioUI _audioUI;
 
         private CanvasGroup _canvas;
 
@@ -25,6 +28,7 @@ namespace UI.Level.HUD
 
         private void Pause()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             _canvas.Close();
             OnPause?.Invoke();
         }

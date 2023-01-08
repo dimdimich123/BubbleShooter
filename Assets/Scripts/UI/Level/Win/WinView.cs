@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UI.Level.Score;
+using Audio.UI;
 
 namespace UI.Level.Win
 {
@@ -11,6 +12,8 @@ namespace UI.Level.Win
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _restartButton;
         [SerializeField] private TMPro.TMP_Text _scoreNumberText;
+
+        [SerializeField] private AudioUI _audioUI;
 
         private CanvasGroup _canvas;
         private ScoreUI _scoreUI;
@@ -36,11 +39,13 @@ namespace UI.Level.Win
 
         private void Exit()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             OnExit?.Invoke();
         }
 
         private void Restart()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             OnRestart?.Invoke();
         }
 

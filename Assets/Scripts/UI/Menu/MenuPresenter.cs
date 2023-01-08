@@ -1,5 +1,7 @@
 using UnityEngine;
 using Configs.Level;
+using Audio;
+using Config.Audio;
 
 namespace UI.Menu
 {
@@ -7,6 +9,7 @@ namespace UI.Menu
     public sealed class MenuPresenter : MonoBehaviour
     {
         [SerializeField] private SelectedLevelInfo _selectedLevelInfo;
+        [SerializeField] private GameAudioMixer _audioMixer;
 
         private MenuView _view;
         private MenuModel _model;
@@ -14,7 +17,7 @@ namespace UI.Menu
         private void Awake()
         {
             _view = GetComponent<MenuView>();
-            _model = new MenuModel(_selectedLevelInfo);
+            _model = new MenuModel(_selectedLevelInfo, _audioMixer);
         }
 
         private void OnEnable()
