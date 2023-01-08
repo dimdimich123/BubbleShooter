@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09103a956dabab4f88001140ec63426, type: 3}
   m_Name: BubbleConfig
   m_EditorClassIdentifier: 
-  _speed: 8
+  _speed: 16
   _points: 50

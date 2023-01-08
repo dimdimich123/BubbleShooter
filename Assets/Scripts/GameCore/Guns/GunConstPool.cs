@@ -55,7 +55,6 @@ namespace GameCore.Guns {
                 {
                     _bubbles[color] = new List<Bubble> { bubble };
                 }
-                
             }
         }
 

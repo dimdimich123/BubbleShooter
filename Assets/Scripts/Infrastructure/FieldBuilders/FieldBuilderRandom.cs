@@ -8,11 +8,13 @@ namespace Infrastructure.FieldBuilders
 {
     public class LevelBuilderRandom : ILevelBuilder
     {
+        private const int _numberEmptyRowsOfBubblesFromEndOfField = 4;
+
         public void Build(BubbleGrid grid, GunRandomPool pool)
         {
             GameObject fieldParent = new GameObject("Field");
 
-            for (int y = 0; y < grid.Height - 4; ++y)
+            for (int y = 0; y < grid.Height - _numberEmptyRowsOfBubblesFromEndOfField; ++y)
             {
                 for (int x = 0; x < grid.Width; x++)
                 {

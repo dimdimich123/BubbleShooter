@@ -2,17 +2,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Configs.Level;
 using GameCore.Guns;
+using Audio;
+using Config.Audio;
 
 namespace UI.Menu
 {
     public sealed class MenuModel
     {
+        private const float _valueWhenAudioIsOn = 0;
+        private const float _valueWhenAudioIsOff = -80f;
+
         private SelectedLevelInfo _selectedLevelInfo;
+        private GameAudioMixer _audioMixer;
         private int _gunConstPoolLength = 5;
 
-        public MenuModel(SelectedLevelInfo selectedLevelInfo)
+        public MenuModel(SelectedLevelInfo selectedLevelInfo, GameAudioMixer audioMixer)
         {
             _selectedLevelInfo = selectedLevelInfo;
+            _audioMixer = audioMixer;
         }
 
         public void Exit()
@@ -42,12 +49,26 @@ namespace UI.Menu
 
         public void Music(bool state)
         {
-            Debug.Log("Music " + state);
+            if(state)
+            {
+                _audioMixer.SetValue(MixerVariables.MusicVolume, _valueWhenAudioIsOn);
+            }
+            else
+            {
+                _audioMixer.SetValue(MixerVariables.MusicVolume, _valueWhenAudioIsOff);
+            }
         }
 
         public void Sound(bool state)
         {
-            Debug.Log("Sound " + state);
+            if (state)
+            {
+                _audioMixer.SetValue(MixerVariables.SoundVolume, _valueWhenAudioIsOn);
+            }
+            else
+            {
+                _audioMixer.SetValue(MixerVariables.SoundVolume, _valueWhenAudioIsOff);
+            }
         }
     }
 }

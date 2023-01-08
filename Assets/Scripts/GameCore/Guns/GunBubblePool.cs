@@ -17,7 +17,7 @@ namespace GameCore.Guns
 		public virtual void Init(Func<BubbleColor, GunBubblePool, Bubble> factory)
 		{
 			_factory = factory;
-
+			_bubbles.Clear();
         }
 
         public void ReturnBubble(Bubble bubble, BubbleColor color, int bubbleNumber)

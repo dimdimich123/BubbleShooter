@@ -5,6 +5,7 @@ using Configs.Level;
 using Infrastructure.Data;
 using Infrastructure.SavingData;
 using Infrastructure.Serialization;
+using Audio.UI;
 
 namespace UI.Menu
 {
@@ -17,6 +18,8 @@ namespace UI.Menu
         [SerializeField] private TMPro.TMP_Text _levelRecordNumberText;
         [SerializeField] private Button _leftArrow;
         [SerializeField] private Button _rightArrow;
+
+        [SerializeField] private AudioUI _audioUI;
 
         private LevelRecords _records;
         private int _currentIndex = 0;
@@ -39,12 +42,14 @@ namespace UI.Menu
 
         private void PreviousLevel()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             _currentIndex = (_currentIndex - 1) < 0 ? _levels.Count - 1 : _currentIndex - 1;
             ChangeLevel();
         }
 
         private void NextLevel()
         {
+            _audioUI.Play(AudioUITypeID.ButtonClick);
             _currentIndex = (_currentIndex + 1) >= _levels.Count ? 0 : _currentIndex + 1;
             ChangeLevel();
         }
