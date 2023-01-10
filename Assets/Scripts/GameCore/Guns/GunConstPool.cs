@@ -22,6 +22,7 @@ namespace GameCore.Guns {
         public override void Init(Func<BubbleColor, GunBubblePool, Bubble> factory)
         {
             base.Init(factory);
+            _bubbleColors.Clear();
             InitColors(_length);
             InitBubbles(_length);
         }
