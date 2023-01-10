@@ -923,7 +923,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 291667084}
+  - component: {fileID: 291667085}
   - component: {fileID: 291667083}
   m_Layer: 0
   m_Name: Background
@@ -984,8 +984,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &291667084
-Transform:
+--- !u!224 &291667085
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -999,6 +999,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.024000004, y: 24.000002}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &291684950
 GameObject:
   m_ObjectHideFlags: 0
